@@ -17,6 +17,3 @@ after_script:
 script:
   - make lint
   - make test
-
-  notifications:
-  - email: false
