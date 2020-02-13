@@ -1,1 +1,3 @@
-export default (a, b) => a + b;
+import run from './run';
+
+run();
