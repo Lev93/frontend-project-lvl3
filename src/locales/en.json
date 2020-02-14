@@ -1,0 +1,18 @@
+{
+    "inputMessage": {
+      "waiting": "Enter URL",
+      "request": "Request",
+      "succes": "Channel has been added.",
+      "error": "The wrong url or network is unavailable."
+    },
+    "button": {
+      "add": "Add",
+      "info": "Info",
+      "close": "Close"
+    },
+    "description": "Auto-update RSS feed",
+    "channels": "Channels",
+    "articles": "Articles",
+    "placeholder": "Enter url",
+    "title": "RSS feed"
+  }
