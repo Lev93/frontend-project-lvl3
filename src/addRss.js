@@ -4,6 +4,7 @@ import state from './state';
 import parse from './parse';
 import { renderFeeds, renderNews } from './render';
 import localize from './locales';
+import updateNews from './requests';
 
 const sendRequest = () => {
   const proxy = 'https://cors-anywhere.herokuapp.com/';
@@ -47,6 +48,7 @@ const addRss = () => {
   const form = document.querySelector('#rss-form');
   const inputField = document.querySelector('#rss-input');
   const inputMessage = document.querySelector('#rss-note');
+  updateNews(state);
   localize(translateStartpage);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -75,8 +77,6 @@ const addRss = () => {
       inputMessage.classList.add('text-success');
       inputField.value = '';
       state.currentInputState = 'empty';
-      renderFeeds();
-      renderNews();
       localize(translateStartpage);
     } else {
       localize((t) => {
@@ -85,6 +85,14 @@ const addRss = () => {
       inputMessage.classList.remove('text-warning');
       inputMessage.classList.add('text-danger');
     }
+  });
+  watch(state, 'feeds', () => {
+    renderNews();
+    localize(translateStartpage);
+  });
+  watch(state, 'news', () => {
+    renderFeeds();
+    localize(translateStartpage);
   });
 };
 
