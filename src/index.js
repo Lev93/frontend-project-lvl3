@@ -1,3 +1,4 @@
-import run from './run';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import app from './app';
 
-run();
+app();
