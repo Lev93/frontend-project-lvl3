@@ -4,7 +4,7 @@ import axios from 'axios';
 import isURL from 'validator/lib/isURL';
 import parse from './parse';
 import localize from './locales';
-import updateNews from './requests';
+import startAutopdateOfAddedNews from './requests';
 import watch from './watch';
 import translateStartpage from './locales/translateStartPage';
 
@@ -19,7 +19,7 @@ const app = () => {
   const form = document.querySelector('#rss-form');
   const inputField = document.querySelector('#rss-input');
   watch(state);
-  updateNews(state);
+  startAutopdateOfAddedNews(state);
   localize(translateStartpage);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
