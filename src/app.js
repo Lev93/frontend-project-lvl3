@@ -28,7 +28,7 @@ const app = () => {
     const proxy = 'https://cors-anywhere.herokuapp.com/';
     axios.get(`${proxy}${url}`)
       .then((response) => {
-        const feed = parse(response);
+        const feed = parse(response.data);
         state.feeds.push(feed);
         state.news.unshift(...feed.items);
         state.urls.push(url);

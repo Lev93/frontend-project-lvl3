@@ -8,9 +8,9 @@ const parseRssItem = (item) => {
   return rssItem;
 };
 
-const parse = (response) => {
+const parse = (responceData) => {
   const parser = new DOMParser();
-  const data = parser.parseFromString(response.data, 'text/xml');
+  const data = parser.parseFromString(responceData, 'text/xml');
   console.log(data);
   const items = data.querySelectorAll('item');
   const feed = {
